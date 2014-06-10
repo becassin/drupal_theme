@@ -1,9 +1,9 @@
-name = becassin
+name = becassin_theme
 description = Metaltoad HTML5/SASS base theme for Drupal 7
 screenshot = images/screenshot.png
 core = 7.x
 version = 1.x-dev
-project = becassin
+project = becassin_theme
 engine = phptemplate
 
 regions[page_top] = Page top
