@@ -100,5 +100,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-compass');
     
-    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'compass']);
+    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'compass:dev']);
 };
