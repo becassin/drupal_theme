@@ -1,3 +1,7 @@
+— CUSTOM NOTES - BECASSIN —
+- npm install
+- gem install compass --pre
+
 Boilerplate was put together by Dan Linn at Metal Toad Media for use internally. It was 
 good enough he felt he should let others use it, too. He agreed with the Basic theme 
 (http://drupal.org/project/basic) developers and thought Zen was getting a little hefty. 

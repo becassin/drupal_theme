@@ -1,7 +1,7 @@
-'use strict';
+
 
 module.exports = function(grunt) {
-
+    'use strict';
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         concat: {
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['sass/*.scss'],
-                tasks: ['compass'],
+                tasks: ['compass:dev'],
                 options: {
                     spawn: false,
                 }
@@ -59,32 +59,32 @@ module.exports = function(grunt) {
                 tasks: ['imagemin']
             }
         },
-        sass: {
-            dist: {
-                options: {
-                    style: 'compressed',
-                    trace: true,
-                    sourcemap: true
-                },
-                files: {
-                    'css/production.min.css': 'sass/style.scss'
-                }
-            }
-        },
         compass: {                  // Task
-          dist: {                   // Target
+          dev: {                    // Another target
             options: {              // Target options
+              environment: 'development',
+              noLineComments: true,
+              sourcemap: true,
+              cssDir: 'css/compiled',
               sassDir: 'sass',
-              cssDir: 'css',
-              environment: 'production',
-              config: 'config.rb'
+              imagesDir: 'images',
+              javascriptsDir: 'js',
+              outputStyle: 'expanded',
+              relativeAssets: true
             }
           },
-          dev: {                    // Another target
-            options: {
+          dist: {
+            options: {              // Target options
+              environment: 'production',
+              noLineComments: true,
+              sourcemap: false,
+              cssDir: 'css/compiled',
               sassDir: 'sass',
-              cssDir: 'css',
-              config: 'config.rb'
+              imagesDir: 'images',
+              javascriptsDir: 'js',
+              outputStyle: 'compressed',
+              relativeAssets: true,
+              force: true
             }
           }
         },
@@ -97,7 +97,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-compass');
     
